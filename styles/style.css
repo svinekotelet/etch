@@ -1,0 +1,11 @@
+.grid {
+    border: 2px solid;
+    display: grid;
+    width:min-content;
+}
+
+.cell {
+    border: 2px solid;
+    height: 40px;
+    width: 40px;   
+}
