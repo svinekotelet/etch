@@ -3,6 +3,7 @@ body {
     height: .95vh;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    gap: 5px;
 }
 
 h1 {
@@ -11,6 +12,7 @@ h1 {
     grid-column: 1 / 4;
     grid-row: 1;
     justify-self: center;
+    margin-top: 20px;
 }
 
 .grid {
@@ -25,4 +27,11 @@ h1 {
     border: 2px solid;
     height: 40px;
     width: 40px;   
+}
+
+.controls {
+    border: 2px solid;
+    grid-row: 2;
+    grid-column: 1;
+    margin: 50px
 }

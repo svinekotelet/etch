@@ -1,5 +1,9 @@
 let size = 16;
-createGrid(size);
+const clearButton = document.querySelector("#clear");
+clearButton.addEventListener("click", () => {
+    clearGrid();
+});
+
 
 function createGrid(size) {
     const grid = document.querySelector(".grid");
@@ -16,3 +20,10 @@ function createGrid(size) {
     grid.setAttribute("style", `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr);`);
 }
 
+function clearGrid() {
+    let cells = document.querySelectorAll("div.cell");
+    cells.forEach(cell => cell.style.cssText = "background-color: white");
+    console.log("why?");
+}
+
+createGrid(size);
