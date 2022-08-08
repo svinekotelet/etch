@@ -18,15 +18,14 @@ h1 {
 .grid {
     border: 2px solid;
     display: grid;
-    width:min-content;
+    height: 700px;
+    width: 700px;
     grid-row: 2;
     grid-column: 2;
 }
 
 .cell {
-    border: 2px solid;
-    height: 40px;
-    width: 40px;   
+    border: 1px solid;   
 }
 
 .controls {
