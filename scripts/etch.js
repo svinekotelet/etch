@@ -5,14 +5,6 @@ clearButton.addEventListener("click", () => {
     clearGrid();
 });
 
-// const sizeSlider = document.querySelector(".sizeSlider");
-// sizeSlider.addEventListener("input", () => {
-//     size = this.value;
-//     createGrid(size);
-//     console.log(size);
-// });
-
-
 function createGrid(n) {
     const grid = document.querySelector(".grid");
 

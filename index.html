@@ -14,11 +14,19 @@
 <body>
     <h1>Etch-A-Sketch</h1>
     <div class="controls">
-        <button id="clear">Clear</button>
+        <form>
+            <input type="radio" id="solid" name="border_type" value="solid">
+            <label for="solid">Solid</label><br>
+            <input type="radio" id="dotted" name="border_type" value="dotted">
+            <label for="dotted">Dotted</label><br>
+            <input type="radio" id="none" name="border_type" value="none">
+            <label for="none">None</label>
+          </form>
         <div class="sizeSlider">
             <h3>Size</h3>
             <input type="range" min="8" max="100" value="16" step="8" autocomplete="off" oninput="refreshGrid(this.value)">
         </div>
+        <button id="clear">Clear</button>
     </div>
     <div class="grid"></div>
 </body>

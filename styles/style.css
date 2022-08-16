@@ -46,10 +46,10 @@ h3 {
     grid-template-rows: repeat(5, 1fr);
 }
 
-.controls#clear {
-    
+#clear {
+    width: 100px;
 }
 
 .controls.sizeSlider {
-    
+    width: 100px;
 }
