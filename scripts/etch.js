@@ -33,3 +33,24 @@ function refreshGrid(n) {
 }
 
 createGrid(size);
+
+const border = document.querySelector(".border");
+border.addEventListener("change", () => {
+    changeBorder(document.forms.border_form.border_type.value);
+});
+
+function changeBorder(type) {
+    let cells = document.querySelectorAll("div.cell");
+    
+    switch (type) {
+        case "solid":
+            cells.forEach(cell => cell.style.cssText = "border-style: solid");
+            break;
+        case "dotted":
+            cells.forEach(cell => cell.style.cssText = "border-style: dotted");
+            break;
+        case "none":
+            cells.forEach(cell => cell.style.cssText = "border-style: none");
+            break;
+    }
+}
