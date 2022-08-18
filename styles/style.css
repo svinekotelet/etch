@@ -29,7 +29,7 @@ h3 {
 }
 
 .cell {
-    border: 1px solid;   
+    border-width: 1px;
 }
 
 .controls {

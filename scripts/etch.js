@@ -1,7 +1,17 @@
 let size = 16;
+let color = "black"
+let borderType = "solid";
+
+createGrid(size);
 
 const clearButton = document.querySelector("#clear");
 clearButton.addEventListener("click", () => {
+    clearGrid();
+});
+
+const border = document.querySelector(".border");
+border.addEventListener("change", () => {
+    borderType = document.forms.border_form.border_type.value;
     clearGrid();
 });
 
@@ -11,8 +21,9 @@ function createGrid(n) {
     for (let i = 0; i < n * n; i++) {
         let cell = document.createElement("div");
         cell.classList.add("cell");
+        cell.style.borderStyle = borderType;
         cell.addEventListener("mouseover", () => {
-            cell.style.cssText = "background-color: black";
+            cell.style.backgroundColor = color;
         });
         grid.appendChild(cell);
     }
@@ -28,29 +39,6 @@ function clearGrid() {
 
 function refreshGrid(n) {
     size = n;
-    clearGrid();
-    
+    clearGrid(); 
 }
 
-createGrid(size);
-
-const border = document.querySelector(".border");
-border.addEventListener("change", () => {
-    changeBorder(document.forms.border_form.border_type.value);
-});
-
-function changeBorder(type) {
-    let cells = document.querySelectorAll("div.cell");
-    
-    switch (type) {
-        case "solid":
-            cells.forEach(cell => cell.style.cssText = "border-style: solid");
-            break;
-        case "dotted":
-            cells.forEach(cell => cell.style.cssText = "border-style: dotted");
-            break;
-        case "none":
-            cells.forEach(cell => cell.style.cssText = "border-style: none");
-            break;
-    }
-}
