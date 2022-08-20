@@ -1,5 +1,5 @@
 let size = 16;
-let color = "black"
+let color = "black";
 let greyMode = false;
 let rainbowMode = false;
 let borderType = "solid";
@@ -36,31 +36,8 @@ colorSetting.addEventListener("change", () => {
     clearGrid();
 });
 
-function createGrid(n) {
-    const grid = document.querySelector(".grid");
-
-    for (let i = 0; i < n * n; i++) {
-        let cell = document.createElement("div");
-        cell.classList.add("cell");
-        cell.style.borderStyle = borderType;
-        if (greyMode) {
-            cell.style.opacity = 0;
-            cell.style.borderColor = rgba(0,0,0,1);
-        }
-        cell.addEventListener("mouseover", () => {
-            if (greyMode) {
-                cell.style.opacity = (parseInt(cell.style.opacity * 10) + 2) / 10;
-            }
-            cell.style.backgroundColor = color;
-        });
-        grid.appendChild(cell);
-    }
-
-    grid.setAttribute("style", `grid-template-columns: repeat(${n}, 1fr); grid-template-rows: repeat(${n}, 1fr);`);
-}
-
 function clearGrid() {
-    let cells = document.querySelectorAll("div.cell");
+    let cells = document.querySelectorAll("div.wrapper");
     cells.forEach(cell => cell.remove());
     createGrid(size);
 }
@@ -70,3 +47,29 @@ function refreshGrid(n) {
     clearGrid(); 
 }
 
+function createGrid(n) {
+    const grid = document.querySelector(".grid");
+
+    for (let i = 0; i < n * n; i++) {
+        let wrapper = document.createElement("div");
+        wrapper.classList.add("wrapper");
+        wrapper.style.borderStyle = borderType;
+
+        let cell = document.createElement("div");
+        cell.classList.add("cell");
+
+        if (greyMode) {
+            cell.style.opacity = 0;
+        }
+        cell.addEventListener("mouseover", () => {
+            if (greyMode) {
+                cell.style.opacity = (parseInt(cell.style.opacity * 10) + 2) / 10;
+            }
+            cell.style.backgroundColor = color;
+        });
+        wrapper.appendChild(cell);
+        grid.appendChild(wrapper);
+    }
+
+    grid.setAttribute("style", `grid-template-columns: repeat(${n}, 1fr); grid-template-rows: repeat(${n}, 1fr);`);
+}
