@@ -1,5 +1,4 @@
 let size = 16;
-let color = "black";
 let greyMode = false;
 let rainbowMode = false;
 let borderType = "solid";
@@ -36,6 +35,14 @@ colorSetting.addEventListener("change", () => {
     clearGrid();
 });
 
+function randomColor() {
+    let rand1 = Math.floor(Math.random() * 256);
+    let rand2 = Math.floor(Math.random() * 256);
+    let rand3 = Math.floor(Math.random() * 256);
+    
+    return `rgb(${rand1},${rand2},${rand3})`;
+}
+
 function clearGrid() {
     let cells = document.querySelectorAll("div.wrapper");
     cells.forEach(cell => cell.remove());
@@ -65,7 +72,13 @@ function createGrid(n) {
             if (greyMode) {
                 cell.style.opacity = (parseInt(cell.style.opacity * 10) + 2) / 10;
             }
-            cell.style.backgroundColor = color;
+            if (rainbowMode) {
+                cell.style.backgroundColor = randomColor();
+            }
+            else {
+                cell.style.backgroundColor = "black";
+            }
+            
         });
         wrapper.appendChild(cell);
         grid.appendChild(wrapper);
