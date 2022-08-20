@@ -15,16 +15,26 @@
     <h1>Etch-A-Sketch</h1>
     <div class="controls">
         <form class="border" name="border_form" autocomplete="off">
-            <input type="radio" id="solid" name="border_type" value="solid">
+            <h3>Border</h3>
+            <input type="radio" id="solid" name="border_type" value="solid" checked>
             <label for="solid">Solid</label><br>
             <input type="radio" id="dotted" name="border_type" value="dotted">
             <label for="dotted">Dotted</label><br>
             <input type="radio" id="none" name="border_type" value="none">
             <label for="none">None</label>
           </form>
+          <form class="colorMode" name="colorMode" autocomplete="off">
+            <h3>Color Mode</h3>
+            <input type="radio" id="black" name="colorMode" value="black" checked>
+            <label for="black">Black/White</label><br>
+            <input type="radio" id="grey" name="colorMode" value="grey">
+            <label for="grey">Greyscale</label><br>
+            <input type="radio" id="rainbow" name="colorMode" value="rainbow">
+            <label for="rainbow">Rainbow</label>
+          </form>
         <div class="sizeSlider">
             <h3>Size</h3>
-            <input type="range" min="8" max="100" value="16" step="8" autocomplete="off" oninput="refreshGrid(this.value)">
+            <input type="range" min="8" max="64" value="16" step="8" autocomplete="off" oninput="refreshGrid(this.value)">
         </div>
         <button id="clear">Clear</button>
     </div>
